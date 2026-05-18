@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>QR code generator  - by AXXO</title>
+  <link rel="stylesheet" href="style.css" />
+  <meta name="description" content="Generate customizable QR codes online. Fast, free and downloadable.">
+  <meta name="keywords" content="QR code generator, qr download, custom qr, fast qr code">
+  <meta name="author" content="AXXO - AXXO LABS">
+
+</head>
+<body>
+  <video autoplay muted loop id="bgVideo">
+    <source src="gradient-circles-cold-animation-gif-download-7070338.mp4" type="video/mp4">
+  </video>
+  <div class="container">
+    <h1>QR Code Generator</h1>
+    <h2>By AXXO</h2>
+    
+    <input type="text" id="text" placeholder="Enter URL or text" />
+    
+    <div class="options">
+      <label>Size: <input type="number" id="size" value="267" /></label>
+      <label>Foreground: <input type="color" id="fgColor" value="#000000" /></label>
+      <label>Background: <input type="color" id="bgColor" value="#ffffff" /></label>
+    </div>
+
+   <div class="preview-box">
+  <h2>QR Code Preview</h2>
+  <div id="qrcode"></div>
+</div>
+
+    <br>
+    <center><button id="downloadBtn">Download QR</button></center>
+
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
+
+

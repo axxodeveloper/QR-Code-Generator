@@ -1,0 +1,262 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(115, 127, 151, 0.3), rgba(67, 86, 112, 0.3));
+  pointer-events: none;
+  z-index: -1;
+}
+
+#bgVideo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+.container {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(10px);
+  max-width: 600px;
+  width: 100%;
+  transition: all 0.3s ease-in-out;
+}
+
+h1 {
+  margin-bottom: 1.5rem;
+  color: #2d89ef;
+  font-size: 2rem;
+}
+
+h2 {
+  margin-bottom: 1.5rem;
+  color: #1657a1;
+  font-size: 90%;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="color"] {
+  padding: 0.6rem;
+  margin: 0.5rem 0;
+  border: 1px solid rgba(22, 87, 161, 0.4);
+  border-radius: 20px;
+  width: 100%;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    inset 0 0 8px rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  color: #1657a1;
+}
+
+input::placeholder {
+  color: rgba(22, 87, 161, 0.6);
+}
+
+input:focus {
+  box-shadow: 
+    4px 4px 8px rgba(0, 0, 0, 0.2),
+    -4px -4px 8px rgba(255, 255, 255, 0.9),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.5),
+    inset -2px -2px 4px rgba(45, 137, 239, 0.2);
+  outline: none;
+  transform: translateY(-2px);
+}
+
+.options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.options label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
+  color: #1657a1;
+}
+
+button {
+  padding: 0.8rem 2rem;
+  margin-top: 1.5rem;
+  background: linear-gradient(145deg, #f0f4f8, #d9e2ee);
+  color: #2d89ef;
+  border: none;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 
+    8px 8px 16px rgba(0, 0, 0, 0.15),
+    -8px -8px 16px rgba(255, 255, 255, 0.8),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.5),
+    inset -2px -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+button::after {
+  content: "→";
+  position: absolute;
+  right: 20px;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  box-shadow: 
+    4px 4px 8px rgba(0, 0, 0, 0.2),
+    -4px -4px 8px rgba(255, 255, 255, 0.9),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.5),
+    inset -2px -2px 4px rgba(45, 137, 239, 0.2);
+  color: #1657a1;
+  transform: translateY(-3px);
+  padding-right: 2.5rem;
+}
+
+button:hover::after {
+  opacity: 1;
+  right: 10px;
+}
+
+button:active {
+  box-shadow: 
+    2px 2px 4px rgba(0, 0, 0, 0.1),
+    -2px -2px 4px rgba(255, 255, 255, 0.5),
+    inset 4px 4px 8px rgba(0, 0, 0, 0.1),
+    inset -4px -4px 8px rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+}
+
+.preview-box {
+  margin-top: 2rem;
+  background-color: rgba(250, 250, 250, 0.9);
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(6px);
+  transition: all 0.3s ease;
+}
+
+.preview-box h2 {
+  margin-bottom: 3rem;
+  font-size: 1.2rem;
+  color: #1657a1;
+}
+
+#qrcode {
+  display: flex;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  body::before {
+    background: linear-gradient(to right, rgba(26, 31, 46, 0.5), rgba(15, 20, 25, 0.5));
+  }
+
+  .container {
+    background-color: rgba(76, 86, 117, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  }
+
+  h1 {
+    color: #64b5f6;
+  }
+
+  h2 {
+    color: #90caf9;
+  }
+
+  input[type="text"],
+  input[type="number"],
+  input[type="color"] {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(100, 181, 246, 0.3);
+    backdrop-filter: blur(10px);
+    color: #64b5f6;
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.3),
+      inset 0 0 8px rgba(255, 255, 255, 0.1);
+  }
+
+  input::placeholder {
+    color: rgba(100, 181, 246, 0.5);
+  }
+
+  input:focus {
+    box-shadow: 
+      4px 4px 8px rgba(0, 0, 0, 0.5),
+      -4px -4px 8px rgba(255, 255, 255, 0.1),
+      inset 2px 2px 4px rgba(0, 0, 0, 0.3),
+      inset -2px -2px 4px rgba(100, 181, 246, 0.2);
+  }
+
+  .options label {
+    color: #64b5f6;
+  }
+
+  button {
+    background: linear-gradient(145deg, #2a3f5f, #1e2d42);
+    color: #64b5f6;
+    box-shadow: 
+      8px 8px 16px rgba(0, 0, 0, 0.4),
+      -8px -8px 16px rgba(255, 255, 255, 0.05),
+      inset 2px 2px 4px rgba(0, 0, 0, 0.3),
+      inset -2px -2px 4px rgba(255, 255, 255, 0.05);
+  }
+
+  button:hover {
+    color: #90caf9;
+    box-shadow: 
+      4px 4px 8px rgba(0, 0, 0, 0.5),
+      -4px -4px 8px rgba(255, 255, 255, 0.1),
+      inset 2px 2px 4px rgba(0, 0, 0, 0.3),
+      inset -2px -2px 4px rgba(100, 181, 246, 0.2);
+  }
+
+  button:active {
+    box-shadow: 
+      2px 2px 4px rgba(0, 0, 0, 0.3),
+      -2px -2px 4px rgba(255, 255, 255, 0.05),
+      inset 4px 4px 8px rgba(0, 0, 0, 0.3),
+      inset -4px -4px 8px rgba(100, 181, 246, 0.1);
+  }
+
+  .preview-box {
+    background-color: rgba(146, 168, 201, 0.26);
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .preview-box h2 {
+    color: #64b5f6;
+  }
+}
+
