@@ -19,3 +19,5 @@ A simple, fast, and fully offline QR code generator that runs directly in your b
 * `index.html` - The main interface.
 * `style.css` - Custom styling for the generator.
 * `script.js` - Logic for generating the QR codes.
+
+🔵 For live preview for the project : https://axxodeveloper.github.io/QR-Code-Generator/
